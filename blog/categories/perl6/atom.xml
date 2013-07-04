@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Matt's Programming Blag]]></title>
-  <link href="http://MattOates.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Perl6 | Matt's Programming Blag]]></title>
+  <link href="http://MattOates.github.io/blog/categories/perl6/atom.xml" rel="self"/>
   <link href="http://MattOates.github.io/"/>
   <updated>2013-07-04T16:46:39+01:00</updated>
   <id>http://MattOates.github.io/</id>
@@ -20,7 +20,7 @@
     <id>http://MattOates.github.io/blog/2013/07/04/perl6</id>
     <content type="html"><![CDATA[<p>A familiar example of a factorial function using a switch (given/when) statement:</p>
 
-<div><script src='https://gist.github.com/5927162.js?file=given_factorial.p6'></script>
+<p><div><script src='https://gist.github.com/5927162.js?file=given_factorial.p6'></script>
 <noscript><pre><code>sub factorial (Int $i) {
     given $i {
         when $i &lt; 0 { fail &quot;Not a Natural Number&quot; }
@@ -35,11 +35,11 @@ isa_ok factorial(-1), Failure, &quot;Factorial for -1 fails&quot;;
 ok factorial(0) == 1, &quot;Factorial for 0&quot;;
 ok factorial(1) == 1, &quot;Factorial for 1&quot;;
 ok factorial(5) == 120, &quot;Factorial for a larger integer&quot;;</code></pre></noscript></div>
-
+</p>
 
 <p>Using the meta [*] list operator we can calculate the product of a range 1 upto the desired number:</p>
 
-<div><script src='https://gist.github.com/5927320.js?file=meta_factorial.p6'></script>
+<p><div><script src='https://gist.github.com/5927320.js?file=meta_factorial.p6'></script>
 <noscript><pre><code>sub factorial {
     if $^i &lt; 0 {
         fail &quot;Not a Natural Number&quot;;
@@ -53,11 +53,11 @@ isa_ok factorial(-1), Failure, &quot;Factorial for -1 fails&quot;;
 ok factorial(0) == 1, &quot;Factorial for 0&quot;;
 ok factorial(1) == 1, &quot;Factorial for 1&quot;;
 ok factorial(5) == 120, &quot;Factorial for a larger integer&quot;;</code></pre></noscript></div>
-
+</p>
 
 <p>Finally we can introduce a postfix ! operator for producing the factorial of a number, 5! == 120 being true.</p>
 
-<div><script src='https://gist.github.com/5927100.js?file=postfix_factorial.p6'></script>
+<p><div><script src='https://gist.github.com/5927100.js?file=postfix_factorial.p6'></script>
 <noscript><pre><code>multi sub postfix:&lt;!&gt; (Int $i where $i &lt; 0)  is tighter(&amp;infix:&lt;*&gt;)  { fail &quot;Not a Natural Number in Factorial&quot; }
 multi sub postfix:&lt;!&gt; (Int $i where 0|1)     is tighter(&amp;infix:&lt;*&gt;)  { 1 }
 multi sub postfix:&lt;!&gt; (Int $i where $i &gt;= 1) is tighter(&amp;infix:&lt;*&gt;)  { $i * ($i-1)! }
@@ -67,9 +67,7 @@ isa_ok -1!, Failure, &quot;Factorial for -1 fails&quot;;
 ok 0! == 1, &quot;Factorial for 0&quot;;
 ok 1! == 1, &quot;Factorial for 1&quot;;
 ok 5! == 120, &quot;Factorial for a larger integer&quot;;</code></pre></noscript></div>
-
-
-
+</p>
 ]]></content>
   </entry>
   
